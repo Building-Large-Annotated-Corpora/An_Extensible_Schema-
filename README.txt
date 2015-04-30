@@ -1,10 +1,12 @@
+Step 0: Download the Stanford NER and CoreNLP and unzip them in the directory 'tools'
+
 Step 1: Compile and run the file 'XMLStripper.java' from within the directory '/code/preprocessing/' with the command:
 
-	javac -cp ../../libraries/jsoup-1.8.2.jar:. XMLStripper.java
+    javac -cp ../../libraries/jsoup-1.8.2.jar:. XMLStripper.java
 
 and run with
 
-	java -cp ../../libraries/jsoup-1.8.2.jar:. XMLStripper
+    java -cp ../../libraries/jsoup-1.8.2.jar:. XMLStripper
 
 This will render the original XML formatted NYTimes documents in plain text devoid of mark-up formatting. 
 Adjust the variable 'DIRECTORY_OF_NYTIMES_DATA' to change the location of the files to be processed. 
@@ -15,7 +17,7 @@ Step 2:
 A) In the directory '/code/preprocessing' run the script 'file_list.sh' and pipe the output to the '../../tools/file_list.txt' like so:
 
 
-	./file_list.sh > ../../tools/file_list.txt
+    ./file_list.sh > ../../tools/file_list.txt
 
 
 B) In the directory '/tools/' unzip Stanford CoreNLP.
@@ -23,12 +25,12 @@ B) In the directory '/tools/' unzip Stanford CoreNLP.
 
 C) Now process the files with the Stanford CoreNLP sentence splitter as follows:
 
-	java -cp "*" -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit -filelist ../file_list.txt -outputDirectory ../../input/bounded_sentences
+    java -cp "*" -Xmx2g edu.stanford.nlp.pipeline.StanfordCoreNLP -annotators tokenize,ssplit -filelist ../file_list.txt -outputDirectory ../../input/bounded_sentences
 
 
 Step 3: Now back in the directory '/code/preprocessing' compile the program 'SentenceBounds.java' with the command:
 
-	javac -cp ../../libraries/jsoup-1.8.2.jar:. SentenceBounds.java
+    javac -cp ../../libraries/jsoup-1.8.2.jar:. SentenceBounds.java
 
 and run with the command:
 
@@ -44,7 +46,7 @@ Step 4: Now in the directory 'Building_Large_Annotated_Corpora' run the script '
 
 Step 5: In the directory 'code' compile the file 'Name_Grabber.java' with the command:
 
-	javac -cp ../../libraries/jsoup-1.8.2.jar:. Name_Grabber.java
+    javac -cp ../../libraries/jsoup-1.8.2.jar:. Name_Grabber.java
 
 and run it with:
 
